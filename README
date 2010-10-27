@@ -1,1 +1,6 @@
 An EE2 Accessory which adds the "Structure" (http://buildwithstructure.com/) addon tree in the control panel sidebar
+
+Installation:
+- create a folder 'ndg_sidebarstructure' in '/system/expressionengine/third_party/'
+- place the file 'acc.ndg_sidebarstructure.php' in the '/system/expressionengine/third_party/ndg_sidebarstructure/' folder
+- activate in Addons > Accessories

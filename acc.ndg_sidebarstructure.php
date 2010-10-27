@@ -67,24 +67,26 @@ class Ndg_sidebarstructure_acc {
 			include(APPPATH.'third_party/structure/mod.structure'.EXT);
 
 			$this->structure = new Structure();
-			$data['data'] 			= $this->structure->get_data();
-			$data['theme_url']		= $this->EE->config->item('theme_folder_url') . 'third_party/structure';
+			$sidebarstructure_data['data'] 			= $this->structure->get_data();
+			$sidebarstructure_data['theme_url']		= $this->EE->config->item('theme_folder_url') . 'third_party/structure';
 
 			//save the original view path, and set to othe Structure package view folder
 			$orig_view_path = $this->EE->load->_ci_view_path;
 			$this->EE->load->_ci_view_path = APPPATH.'third_party/structure/views/';
 		
 			//code using the Structure view files
-			$index = str_replace(array("\r", "\n"), ' ', $this->EE->load->view('index', $data, TRUE));
+			$index = str_replace(array("\r", "\n"), ' ', $this->EE->load->view('index', $sidebarstructure_data, TRUE));
 
 			//then return the view path to the application's original view path
 			$this->EE->load->_ci_view_path = $orig_view_path;
 		
 
-			$this->EE->cp->add_to_head("<link rel='stylesheet' href='{$data['theme_url']}/css/structure-new.css'>
+			$this->EE->cp->add_to_head("<link rel='stylesheet' href='{$sidebarstructure_data['theme_url']}/css/structure-new.css'>
 				<style type='text/css'>
-					#sidebarContent .addEdit{  margin:0 !important;}
-					#sidebarContent .addEditLabel{display:none;}
+					#sidebarContent #sidebarStructure .addEdit{  margin:0 !important;}
+					#sidebarContent #sidebarStructure .addEditLabel{display:none;}
+					#sidebarContent #sidebarStructure {overflow:hidden;}
+					#sidebarContent #sidebarStructure p.main-container{width:100%;}
 				</style>
 			
 			");
@@ -92,8 +94,8 @@ class Ndg_sidebarstructure_acc {
 			<script type="text/javascript">
 			$("#accessoryTabs > ul > li > a.ndg_sidebarstructure").parent("li").remove()
 			$(document).ready( function() {
-				$("#sidebarContent").prepend(\'<div id="structure" style="margin-top:10px">'.$index.'</div>\');
-				$("#sidebarContent #structure").find("img").hover( function(){
+				$("#sidebarContent").prepend(\'<div id="sidebarStructure" style="margin-top:10px">'.$index.'</div>\');
+				$("#sidebarContent #sidebarStructure").find("img").hover( function(){
 				      $(this).css("cursor","default");
 				   });
 			})
@@ -107,4 +109,4 @@ class Ndg_sidebarstructure_acc {
 // END CLASS
 
 /* End of file acc.ndg_sidebarstructure.php */
-/* Location: ./system/expressionengine/third_party/toggle_children/acc.ndg_sidebarstructure.php */
+/* Location: ./system/expressionengine/third_party/ndg_sidebarstructure/acc.ndg_sidebarstructure.php */
