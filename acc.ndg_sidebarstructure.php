@@ -81,7 +81,13 @@ class Ndg_sidebarstructure_acc {
 			$this->EE->load->_ci_view_path = $orig_view_path;
 		
 
-			$this->EE->cp->add_to_head("<link rel='stylesheet' href='{$data['theme_url']}/css/structure-new.css'>");
+			$this->EE->cp->add_to_head("<link rel='stylesheet' href='{$data['theme_url']}/css/structure-new.css'>
+				<style type='text/css'>
+					#sidebarContent .addEdit{  margin:0 !important;}
+					#sidebarContent .addEditLabel{display:none;}
+				</style>
+			
+			");
 			$this->EE->cp->add_to_foot('
 			<script type="text/javascript">
 			$("#accessoryTabs > ul > li > a.ndg_sidebarstructure").parent("li").remove()
